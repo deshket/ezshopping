@@ -23,8 +23,8 @@
 					include 'config.php';
 					include 'opendb.php';
 
-					$fname = (isset($_POST['fname'])    ? $_POST['firstname']   : '');
-					$lname = (isset($_POST['lname'])    ? $_POST['lastname']   : '');
+					$firstname = (isset($_POST['firstname'])    ? $_POST['firstname']   : '');
+					$lastname = (isset($_POST['lastname'])    ? $_POST['lastname']   : '');
 
 					$sql= "SELECT id, firstname, lastname
 					FROM user
