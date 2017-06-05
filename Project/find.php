@@ -23,20 +23,20 @@
 					include 'config.php';
 					include 'opendb.php';
 
-					$fname = (isset($_POST['fname'])    ? $_POST['fname']   : '');
-					$lname = (isset($_POST['lname'])    ? $_POST['lname']   : '');
+					$fname = (isset($_POST['fname'])    ? $_POST['firstname']   : '');
+					$lname = (isset($_POST['lname'])    ? $_POST['lastname']   : '');
 
-					$sql= "SELECT id, fname, lname
-					FROM lecture1
-					WHERE fname LIKE '$fname' AND lname LIKE '$lname' LIMIT 1";
+					$sql= "SELECT id, firstname, lastname
+					FROM user
+					WHERE firstname LIKE '$firstname' AND lastname LIKE '$lastname' LIMIT 1";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
 									echo "ID: " . $row["id"]. "<br>";
-					        echo "First Name: " . $row["fname"]. "<br>";
-					        echo "Last Name: " . $row["lname"]. "<br><hr>";
+					        echo "First Name: " . $row["firstname"]. "<br>";
+					        echo "Last Name: " . $row["lastname"]. "<br><hr>";
 					    }
 					} else {
 					    echo "0 results";
