@@ -26,6 +26,38 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
     </script>
+	
+	<script>
+	var Notification = window.Notification || window.mozNotification || window.webkitNotification;
+
+	Notification.requestPermission(function (permission) {
+		// console.log(permission);
+	});
+
+	function show() {
+		window.setTimeout(function () {
+			var instance = new Notification(
+				"shopping list ready", {
+					body: "Ready to view your Shopping List"
+				}
+			);
+
+			instance.onclick = function () {
+				// Something to do
+			};
+			instance.onerror = function () {
+				// Something to do
+			};
+			instance.onshow = function () {
+				// Something to do
+			};
+			instance.onclose = function () {
+				// Something to do
+			};
+		}, 3000);
+	}
+</script>
+
 </head>
 <body>
 
@@ -42,6 +74,7 @@
 			<li><a href="#Dairy">Dairy</a></li>
 			<li> <a href="#displayall"  >Display All Records</a></li>
 			<li><a href="#section7">Survey Form</a></li>
+			<button type="button" onclick="show()">Notify me!</button>
 		</ul>
 	</div>
 	</div>
